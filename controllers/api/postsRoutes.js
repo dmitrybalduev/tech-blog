@@ -17,6 +17,34 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', (req, res) => {
+  Post.findOne({
+          where: {
+              id: req.params.id
+          },
+          attributes: ['id', 'content', 'name', 'created_at'],
+          include: [{
+                  model: User,
+                  attributes: ['username']
+              }
+          ]
+      })
+      .then(postData => {
+        // console.log(JSON(postData));
+          if (!postData) {
+              res.status(404).json({ message: 'No post found with this id' });
+              return;
+          }
+          const post = postData.get({ plain: true });
+          res.render('onePost', { post, loggedIn: true });
+          // res.json(postData);
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Project.create({
@@ -30,21 +58,41 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', withAuth, (req, res) => {
+  Post.update({
+          name: req.body.name,
+          content: req.body.content
+      }, {
+          where: {
+              id: req.params.id
+          }
+      }).then(data => {
+          if (!data) {
+              res.status(404).json({ message: 'No post found with this id' });
+              return;
+          }
+          res.json(data);
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.destroy({
+    const data = await Post.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!data) {
+      res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
   }
