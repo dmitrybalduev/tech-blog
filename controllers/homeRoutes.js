@@ -11,6 +11,10 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['username'],
         },
+        {
+          model: Comment,
+          attributes: ['id', 'text', 'user_id', 'post_id', 'createdAt', 'updatedAt'],
+        }
       ],
     });
 
@@ -18,6 +22,7 @@ router.get('/', async (req, res) => {
     const posts = projectData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
+    // res.status(200).json(posts);
     res.render('homepage', { 
       posts, 
       logged_in: req.session.logged_in 
