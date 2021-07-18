@@ -14,15 +14,12 @@ router.get('/', async (req, res) => {
         {
           model: Comment,
           attributes: ['id', 'text', 'user_id', 'post_id', 'createdAt', 'updatedAt'],
+          include:[{model: User, attributes: ['username']}]
         }
       ],
     });
-
-    // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    // res.status(200).json(posts);
     res.render('homepage', { 
       posts, 
       logged_in: req.session.logged_in 
