@@ -3,6 +3,9 @@
 ## Description 
 This is a simple blog application that allows user share their posts and leave comments. Users need to be logged in to post and comment. 
 
+## Live application
+[Click here](https://tech-blog-dmitry.herokuapp.com/)
+
 
 ## Demo
 ![Application](./public/Assets/tech-blog.gif)
