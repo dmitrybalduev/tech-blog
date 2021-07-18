@@ -1,17 +1,17 @@
 [
   {
-    "name": "Random Post",
-    "content": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+    "name": "TurboTax parent company Intuit is exiting the IRS Free File Program",
+    "content": "With the Free File program surpassing its founding goals of e-file and free tax preparation, and due to the limitations of the Free File program and conflicting demands from those outside the program, we are not able to continue in the program and deliver all of the benefits that can help consumers make more money, save more, and invest for the future.",
     "user_id": 1
   },
   {
-    "name": "Random Post 2",
-    "content": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
+    "name": "Tesla Full Self Driving subscriptions are now available for $199 a month",
+    "content": "Tesla has started offering a monthly subscription for its Full Self Driving package for $199 per month. Tesla owners who bought the since-discontinued Enhanced Autopilot package can get the FSD subscription for $99 per month, according to Tesla’s support page. ",
     "user_id": 1
   },
   {
-    "name": "Random Post 3",
-    "content": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
+    "name": "California legislature approves ‘historic’ broadband internet bill",
+    "content": "California’s legislature has voted unanimously to approve a $6 billion plan to build a statewide open access fiber network (h/t ArsTechnica). The state will provide $3.25 billion to hire a third party to build and maintain a so-called “middle-mile” network, which won’t bring internet directly from backbone infrastructure to customers, but rather to connection points, leaving the last mile to be handled by internet service providers (ISPs). ",
     "user_id": 2
   }
 ]

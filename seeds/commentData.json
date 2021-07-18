@@ -1,16 +1,16 @@
 [
     {
-        "text": "Test comment",
+        "text": "This is awesome!",
         "user_id": 1,
         "post_id": 1
     },
     {
-        "text": "Test Comment - 2",
+        "text": "!!!",
         "user_id": 1,
         "post_id": 1
     },
     {
-        "text": "Test comment -3",
+        "text": "Just testing comments",
         "user_id": 2,
         "post_id": 2
     }
