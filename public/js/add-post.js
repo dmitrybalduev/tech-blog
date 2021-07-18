@@ -21,5 +21,5 @@ async function newPost(event) {
       alert(response.statusText);
     }
   };
-  
+
 document.querySelector('#new-post-form').addEventListener('submit', newPost);

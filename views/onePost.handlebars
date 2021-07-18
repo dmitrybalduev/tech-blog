@@ -1,8 +1,58 @@
 <div class="card">
     <div class="card-header">
-       <h4><a class="link" href="/post/{{post.id}}">{{post.name}}</a></h4>
+       <h4 id="post-header" data-index={{post.id}}>{{post.name}}</h4>
         <p>Posted by {{post.user.username}} on {{format_date post.created_at}}</p>
     </div>
-        <p class="card-body">{{post.content}}</p>
-</div>
+    <p class="card-body">{{post.content}}</p>
+    {{#if logged_in}}
+        {{#if commentsArr}}
 
+            <ul class="list-group list-group-flush">
+                {{#each commentsArr as |comment| }}
+
+                    <li class="list-group-item">
+                        <div class="card border-info mb-3" >
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p>{{comment.text}}</p>
+                                    <footer class="blockquote-footer"> Comment from <cite>{{post.user.username}}</cite> on {{format_date comment.updatedAt}}</footer>
+                                </blockquote>
+                                
+                            </div>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    {{/if}}
+</div>
+{{#if logged_in}}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Add comment!
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="comment-text"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="add-comment-btn" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}
+
+<script src='/js/comment.js'></script>

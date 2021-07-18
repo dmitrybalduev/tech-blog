@@ -6,8 +6,9 @@
     <div class="card">
         <div class="card-header">
             <h4>{{post.name}}</h4>
-            <p>Posted on {{format_date created_at}}</p>
-            <a class="link" href="/dashboard/edit/{{post.id}}"></a>
+            <p>{{post.content}}</p>
+            <p class="blockquote-footer mt-1">Posted on {{format_date created_at}}</p>
+            <button class="delete" onclick="deletePost({{post.id}})" id="delete-post-{{post.id}}" data-index={{post.id}}>DELETE</button>
         </div>
         {{!-- <p class="card-body">{{post.content}}</p> --}}
     </div>
@@ -17,3 +18,4 @@
 {{/if}}
 
 <button type="submit" class="btn"><a class="link" href="/dashboard/new">+ New Post</a></button>
+<script src='/js/delete-post.js'></script>
